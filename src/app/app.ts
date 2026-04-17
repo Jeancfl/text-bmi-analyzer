@@ -7,7 +7,7 @@ import { BmiCalculatorComponent } from './bmi-calculator/bmi-calculator.componen
   standalone: true,
   imports: [TextAnalyzerComponent, BmiCalculatorComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   title = 'Text & BMI Analyzer';
