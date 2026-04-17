@@ -1,0 +1,80 @@
+<!-- bmi-calculator.component.html -->
+<section class="card">
+  <div class="card-label">
+    <span class="icon">◈</span> Section 2
+  </div>
+  <h2 class="card-title">BMI Calculator</h2>
+  <p class="card-desc">Enter your weight and height to calculate your Body Mass Index.</p>
+
+  <div class="fields-row">
+    <div class="input-group full">
+      <label class="field-label" for="weight">Weight (lbs)</label>
+      <input
+        id="weight"
+        type="number"
+        class="num-input"
+        [(ngModel)]="weightLbs"
+        placeholder="e.g. 160"
+        min="1"
+      />
+    </div>
+
+    <div class="input-group half">
+      <label class="field-label" for="feet">Height — Feet</label>
+      <input
+        id="feet"
+        type="number"
+        class="num-input"
+        [(ngModel)]="heightFeet"
+        placeholder="e.g. 5"
+        min="0"
+      />
+    </div>
+
+    <div class="input-group half">
+      <label class="field-label" for="inches">Height — Inches</label>
+      <input
+        id="inches"
+        type="number"
+        class="num-input"
+        [(ngModel)]="heightInches"
+        placeholder="e.g. 10"
+        min="0"
+        max="11"
+      />
+    </div>
+  </div>
+
+  <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <button class="btn btn-primary" (click)="calculateBMI()">
+    Calculate BMI
+    <span class="btn-arrow">→</span>
+  </button>
+
+  <div class="bmi-result" *ngIf="calculated" [ngClass]="categoryClass">
+    <div class="bmi-number-row">
+      <div>
+        <span class="bmi-label">Your BMI</span>
+        <span class="bmi-number">{{ bmi | number:'1.1-1' }}</span>
+      </div>
+      <div class="bmi-badge" [ngClass]="categoryClass">{{ bmiCategory }}</div>
+    </div>
+    <div class="bmi-scale">
+      <div class="scale-segment underweight"></div>
+      <div class="scale-segment normal"></div>
+      <div class="scale-segment overweight"></div>
+      <div class="scale-segment obese"></div>
+    </div>
+    <div class="scale-labels">
+      <span>Underweight</span>
+      <span>Normal</span>
+      <span>Overweight</span>
+      <span>Obese</span>
+    </div>
+  </div>
+
+  <div class="empty-hint" *ngIf="!calculated && !errorMessage">
+    <p>Your BMI result will appear here.</p>
+  </div>
+</section>

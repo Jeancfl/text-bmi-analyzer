@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BmiCalculator } from './bmi-calculator.component';
+
+describe('BmiCalculator', () => {
+  let component: BmiCalculator;
+  let fixture: ComponentFixture<BmiCalculator>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [BmiCalculator],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(BmiCalculator);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

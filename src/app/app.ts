@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { TextAnalyzerComponent } from './text-analyzer/text-analyzer.component';
+import { BmiCalculatorComponent } from './bmi-calculator/bmi-calculator.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [TextAnalyzerComponent, BmiCalculatorComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('text-bmi');
+  title = 'Text & BMI Analyzer';
 }

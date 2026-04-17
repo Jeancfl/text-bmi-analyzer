@@ -1,0 +1,38 @@
+<section class="card">
+  <div class="card-label">
+    <span class="icon">✦</span> Section 1
+  </div>
+  <h2 class="card-title">Vowel &amp; Consonant Counter</h2>
+  <p class="card-desc">Type any sentence below and click Analyze to break it down by vowels and consonants.</p>
+
+  <div class="input-group">
+    <label class="field-label" for="textInput">Your Sentence</label>
+    <textarea
+      id="textInput"
+      class="text-input"
+      [(ngModel)]="inputText"
+      placeholder="e.g. The quick brown fox jumps over the lazy dog"
+      rows="3"
+    ></textarea>
+  </div>
+
+  <button class="btn btn-primary" (click)="analyzeText()">
+    Analyze Text
+    <span class="btn-arrow">→</span>
+  </button>
+
+  <div class="results" *ngIf="analyzed">
+    <div class="result-card vowel">
+      <span class="result-label">Vowels</span>
+      <span class="result-value">{{ vowelCount }}</span>
+    </div>
+    <div class="result-card consonant">
+      <span class="result-label">Consonants</span>
+      <span class="result-value">{{ consonantCount }}</span>
+    </div>
+  </div>
+
+  <div class="empty-hint" *ngIf="!analyzed">
+    <p>Results will appear here after analysis.</p>
+  </div>
+</section>
